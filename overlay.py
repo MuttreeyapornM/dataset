@@ -26,7 +26,8 @@ class_to_id = {
     "crosswalk": 6,
     "vegetation": 7,
     "golf cart": 8,
-    "background": 999
+    "background": 999,
+    "blackground": 999
 }
 
 # กำหนดสีที่ใช้สำหรับแต่ละ class (สี RGB)
@@ -40,7 +41,7 @@ id_to_color = {
     6: [255, 0, 255],    # magenta for crosswalk (RGB)
     7: [0, 128, 0],      # dark green for vegetation (RGB)
     8: [0, 0, 0],         # black for golf cart (RGB)
-    999: [0, 0, 0]         # black for background (RGB)
+    999: [255, 255, 255]  # white for background preview (RGB)
 }
 
 image_extensions = {".png", ".jpg", ".jpeg", ".bmp", ".webp"}

@@ -94,19 +94,21 @@ Output:
 
 ```text
 label/SHADOW_masks/*.png
+label/SHADOW_masks_preview/*_preview.png
 ```
 
 สคริปต์นี้ใช้คำสั่งของ LabelMe:
 
-```bash
-python -m labelme.cli.json_to_dataset <file.json>
-```
+Current scripts do not rely on LabelMe-generated label IDs. They write masks
+from the shared `class_to_id` mapping instead, with background initialized as
+`999`, and write a separate RGB preview for visual checking.
 
 ถ้าต้องการแปลงชุดอื่น ให้แก้ path ใน `trans.py`:
 
 ```python
 json_folder = "label/SHADOW_label"
 output_folder = "label/SHADOW_masks"
+preview_output_folder = "label/SHADOW_masks_preview"
 ```
 
 ### 3. แปลง JSON เป็น image + label แบบจับคู่กัน
@@ -128,6 +130,7 @@ Output:
 ```text
 converted_all/_img/<name>_img.png
 converted_all/_label/<name>_label.png
+converted_all/_label_preview/<name>_label_preview.png
 ```
 
 ไฟล์นี้เหมาะกับขั้นตอนก่อนนำข้อมูลไป train model เพราะได้ image และ label เป็นคู่ชื่อเดียวกัน
